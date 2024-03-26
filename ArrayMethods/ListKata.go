@@ -14,15 +14,25 @@ func (list *Collection[T]) Map(f func(*T)) {
 	}
 }
 
+func Map[T any](list *[]T, f func(*T)) {
+	for i := range *list {
+		f(&(*list)[i])
+	}
+}
+
 func (list *Collection[T]) Filter(f func(T) bool) {
 	filteredCollection := Collection[T]{}
-	for i := range list.items {
-		if f(list.items[i]) {
-			filteredCollection.items = append(filteredCollection.items, list.items[i])
+	for _, element := range list.items {
+		if f(element) {
+			filteredCollection.items = append(filteredCollection.items, element)
 		}
 	}
 	list.items = filteredCollection.items
 }
+
+// func (list *Collection[T]) Foldr(f func(T), acc T) T {
+
+// }
 
 // All methods must iterate through indexes,
 // as if we do something like:
