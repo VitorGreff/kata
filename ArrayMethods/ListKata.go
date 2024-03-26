@@ -1,38 +1,43 @@
 package kata
 
-type Collection[T any] struct {
-	items []T
-}
+// type Collection[T any] struct {
+// 	items []T
+// }
 
-func ToCollection[T any](items []T) Collection[T] {
-	return Collection[T]{items: items}
-}
+// func ToCollection[T any](items []T) Collection[T] {
+// 	return Collection[T]{items: items}
+// }
 
-func (list *Collection[T]) Map(f func(*T)) {
-	for i := range list.items {
-		f(&(list.items[i]))
+// func (list *Collection[T]) Map(f func(*T)) {
+// 	for i := range list.items {
+// 		f(&(list.items[i]))
+// 	}
+// }
+
+func Map[T any](collection []T, f func(T) T) []T {
+	newCollection := []T{}
+	for _, element := range collection {
+		newCollection = append(newCollection, f(element))
 	}
+	return newCollection
 }
 
-func Map[T any](list *[]T, f func(*T)) {
-	for i := range *list {
-		f(&(*list)[i])
-	}
-}
-
-func (list *Collection[T]) Filter(f func(T) bool) {
-	filteredCollection := Collection[T]{}
-	for _, element := range list.items {
+func Filter[T any](collection []T, f func(T) bool) []T {
+	newCollection := []T{}
+	for _, element := range collection {
 		if f(element) {
-			filteredCollection.items = append(filteredCollection.items, element)
+			newCollection = append(newCollection, element)
 		}
 	}
-	list.items = filteredCollection.items
+	return newCollection
 }
 
-// func (list *Collection[T]) Foldr(f func(T), acc T) T {
-
-// }
+func Foldr[T any](collection []T, f func(T, T) T, acc T) T {
+	for _, element := range collection {
+		acc = f(acc, element)
+	}
+	return acc
+}
 
 // All methods must iterate through indexes,
 // as if we do something like:

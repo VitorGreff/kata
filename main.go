@@ -23,13 +23,16 @@ func main() {
 	// })
 
 	// log.Println(c)
-	kata.Map(&arr, func(v *int) {
-		*v *= 2
-	})
-	log.Println(arr)
-
-	kata.Map(&strings, func(s *string) {
-		*s += "world"
-	})
-	log.Println(strings)
+	log.Println(kata.Map(arr, func(v int) int {
+		return v * 2
+	}))
+	log.Println(kata.Filter(arr, func(v int) bool {
+		return v%2 == 0
+	}))
+	log.Println(kata.Foldr(arr, func(acc, curr int) int {
+		return acc + curr
+	}, 0))
+	log.Println(kata.Foldr(strings, func(acc, curr string) string {
+		return acc + curr
+	}, ""))
 }
