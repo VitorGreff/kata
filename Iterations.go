@@ -17,8 +17,8 @@ func FindIndex[T any](collection []T, f func(T) bool) (int, error) {
 	return -1, errors.New("kata: element not found within the slice")
 }
 
-func Take[T any](collection []T, n int) []T {
-	if n > len(collection) {
+func Take[T any](collection []T, n uint) []T {
+	if n > uint(len(collection)) {
 		return collection
 	}
 	return collection[:n]
@@ -34,8 +34,8 @@ func TakeWhile[T any](collection []T, f func(T) bool) []T {
 	return collection[:index]
 }
 
-func Drop[T any](collection []T, n int) []T {
-	if n < 0 {
+func Drop[T any](collection []T, n uint) []T {
+	if n > uint(len(collection)) {
 		return []T{}
 	}
 	return collection[n:]
