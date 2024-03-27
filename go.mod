@@ -1,3 +1,3 @@
-module kata
+module github.com/VitorGreff/kata
 
 go 1.22
