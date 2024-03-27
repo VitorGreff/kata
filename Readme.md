@@ -1,4 +1,2 @@
 # KATA 
-Kata's a straightfoward library that aims to implement some functional constructs from other languages and bring them to golang.
-
-
+Kata's a straightfoward library that aims to implement some functional constructs from other languages and bring them to golang. Many approaches are possible when adapting functions and methods from one language to another, but, as we are playing with functional patterns, I chose no to use any pointers at all and decided that all functions should return a completely new value/slice. The following sections of this Readme will try to explain some key concepts and the use of every function. Not to mention that Kata was built with only educational purposes in mind, so please, **do not use it on production.**

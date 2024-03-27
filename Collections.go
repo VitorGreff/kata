@@ -19,8 +19,8 @@ func Filter[T any](collection []T, f func(T) bool) []T {
 }
 
 func Foldr[T any](collection []T, f func(T, T) T, acc T) T {
-	for _, element := range collection {
-		acc = f(acc, element)
+	for _, curr := range collection {
+		acc = f(acc, curr)
 	}
 	return acc
 }
