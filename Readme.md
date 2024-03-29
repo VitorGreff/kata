@@ -1,8 +1,8 @@
-# KATA 
+# Kata 
 
 Kata's a straightfoward library that aims to implement some functional constructs from other languages and bring them to golang. Many approaches are possible when adapting functions and methods from one language to another, but, as we are playing with functional patterns, I chose not to use any pointers at all and decided that all functions should return a completely new value/slice. 
 
-<h2>How to use it</h2>
+## How to use it
 Make sure you have go 1.22 or some newer version, with that said, just import the code using go module system:
 <br></br>
 
@@ -12,7 +12,7 @@ go get github.com/VitorGreff/kata
 
 <hr></hr>
 
-<h2>Generics</h2>
+## Generics
 
 Generics is a concept widely used on this library, as a way to use type inference to grant every function many ways to be used based on its parameters. This library just used 2 type constraints, aside of primitive types. which are:
 
@@ -23,7 +23,7 @@ Generics is a concept widely used on this library, as a way to use type inferenc
 
 <hr></hr>
 
-<h2>Functions Description</h2>
+## Functions Description
 
 | METHOD    | PARAMETERS                | RETURN             | Description                                                                                                               |
 | --------- | ------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------- |
